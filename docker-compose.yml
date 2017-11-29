@@ -1,0 +1,36 @@
+version: '3'
+services:
+    petshopweb:
+        image: pdebruin/petshopweb:4
+        build:
+            context: ./
+            dockerfile: dockerfile
+        ports: 
+            - 80:80
+        networks: 
+            - default
+        depends_on:
+        - petshopdb
+
+    petshopdb:
+        image: pdebruin/petshopdb:4
+        networks: 
+            - default
+        environment: 
+            sa_password: "Geheim01!"
+            ACCEPT_EULA: "Y"
+            attach_dbs: "[
+                {'dbName':'MSPetShop','dbFiles':['C:\\\\tempdb\\\\MSPetShop.mdf','C:\\\\tempdb\\\\MSPetShop_log.ldf']},
+                {'dbName':'MSPetShop4','dbFiles':['C:\\\\tempdb\\\\MSPetShop4.mdf','C:\\\\tempdb\\\\MSPetShop4_log.ldf']},
+                {'dbName':'MSPetShop4Orders','dbFiles':['C:\\\\tempdb\\\\MSPetShop4Orders.mdf','C:\\\\tempdb\\\\MSPetShop4Orders_log.ldf']},
+                {'dbName':'MSPetShop4Profile','dbFiles':['C:\\\\tempdb\\\\MSPetShop4Profile.mdf','C:\\\\tempdb\\\\MSPetShop4Profile_log.ldf']},
+                {'dbName':'MSPetShop4Services','dbFiles':['C:\\\\tempdb\\\\MSPetShop4Services.mdf','C:\\\\tempdb\\\\MSPetShop4Services_log.ldf']}]"
+        ports:
+        - "1433:1433"
+        volumes: 
+        - C:/_projects/petshop4/db:C:/tempdb/
+
+networks:
+    default:
+        external:
+            name: nat

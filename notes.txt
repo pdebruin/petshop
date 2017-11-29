@@ -1,0 +1,24 @@
+# run the web and db images as Docker Stack
+docker-compose up -d
+
+= troubleshoot 
+
+# get container id
+docker ps 
+
+# interact with the container
+docker exec -it <container id> powershell
+
+# check data/log files
+c:\tempdb
+
+# check databases are attached
+sqlcmd -Q "SELECT name FROM master.sys.databases"
+
+= TODO
+
+* Use secrets for db pwd & conn strings
+
+* azure files for data/log files
+
+= 
