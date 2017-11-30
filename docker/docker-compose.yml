@@ -28,7 +28,7 @@ services:
         ports:
         - "1433:1433"
         volumes: 
-        - C:/_projects/petshop4/db:C:/tempdb/
+        - C:/_projects/petshop4/petshop/docker/db:C:/tempdb/
 
 networks:
     default:
