@@ -3,7 +3,7 @@ services:
     petshopweb:
         image: pdebruin/petshopweb:4
         build:
-            context: ./
+            context: ./web/
             dockerfile: dockerfile
         ports: 
             - 80:80

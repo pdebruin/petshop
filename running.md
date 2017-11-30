@@ -21,4 +21,6 @@ Third find the volumes section and change the 'C:/_projects/petshop4/petshop/doc
 Ok, so you have personalized image names, sql password and data/log files location.
 
 ## Start
-Now you are ready to start the containers with 'docker-compose up -d'. You will see the db and web started. Once the containers are started, do 'docker ps' to find the container id of the web container and then do 'docker inspect <container id>' to find the ipaddress. Finally open a browser and browse to the ipaddress. 
+Now you are ready to start the containers with 'docker-compose up -d'. You will see the db and web started. If you don't have docker-compose, get it here https://docs.docker.com/compose/install.
+
+Once the containers are started, do 'docker ps' to find the container id of the web container and then do 'docker inspect <container id>' to find the ipaddress. Finally open a browser and browse to the ipaddress. 
