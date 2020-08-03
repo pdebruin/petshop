@@ -1,5 +1,6 @@
 # escape=`
-FROM microsoft/aspnet:3.5
+FROM mcr.microsoft.com/dotnet/framework/aspnet:3.5
+#FROM microsoft/aspnet:3.5
 #SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 #RUN Add-WindowsFeature Web-Asp-Net
