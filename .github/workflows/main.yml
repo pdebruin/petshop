@@ -18,5 +18,5 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build . -t pieterd.azurecr.io/petshop:${{ github.sha }}
+        docker build . -t pieterd.azurecr.io/petshop:${{ github.sha }} -f ./Docker/web/Dockerfile
         docker push pieterd.azurecr.io/petshop:${{ github.sha }}
